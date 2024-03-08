@@ -9,7 +9,7 @@ function processData() {
 
 processData()
   .then((data) => {
-    const oddNumbers = data.filter(num => num % 2 !== 0);
+    const oddNumbers = data.filter(num => num % 2 === 0);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(oddNumbers);
