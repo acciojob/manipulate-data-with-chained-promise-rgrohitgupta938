@@ -9,7 +9,7 @@ function processData() {
 
 processData()
   .then((data) => {
-    const oddNumbers = data.filter(num => num % 2 !== 0);
+    const oddNumbers = data.filter(num => num % 2 === 0);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(oddNumbers);
@@ -17,11 +17,11 @@ processData()
     });
   })
   .then((oddNumbers) => {
-    document.getElementById("output").textContent = oddNumbers.join(", ");
+    document.getElementById("output").textContent = oddNumbers;
     return oddNumbers;
   })
   .then((oddNumbers) => {
-    const evenNumbers = [1,2,3,4].filter(num => num %2 === 0 );
+    const evenNumbers = [1,2,3,4].filter(num => num %2 === 0 ).map(n => n*2);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(evenNumbers);
@@ -29,7 +29,7 @@ processData()
     });
   })
   .then((evenNumbers) => {
-    document.getElementById("output").textContent = evenNumbers.join(", ");
+    document.getElementById("output").textContent = evenNumbers;
   })
   .catch((error) => {
     console.error("Error:", error);
