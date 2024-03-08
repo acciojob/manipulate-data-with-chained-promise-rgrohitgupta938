@@ -21,7 +21,7 @@ processData()
     return oddNumbers;
   })
   .then((oddNumbers) => {
-    const evenNumbers = oddNumbers.map(num => num * 2);
+    const evenNumbers = oddNumbers.map(num => num %2 === 0 ).map(num => num*2);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(evenNumbers);
